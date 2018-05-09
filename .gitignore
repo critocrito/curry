@@ -3,7 +3,7 @@ package-lock.json
 yarn.lock
 node_modules
 *.log*
-flow-typed
+flow-typed/npm
 flow-coverage
 dist
 .npmrc

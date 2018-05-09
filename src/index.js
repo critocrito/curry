@@ -1,8 +1,15 @@
+// @flow
 import namefn from "@critocrito/namefn";
 
-const ncurry = n => {
-  const localCurry = (name, f, ...args) => {
-    const g = (...largs) => {
+type CurriedRet = mixed | (() => mixed);
+
+const ncurry = (n: number) => {
+  const localCurry = (
+    name: string,
+    f: () => mixed,
+    ...args: $ReadOnlyArray<mixed>
+  ): CurriedRet => {
+    const g = (...largs: $ReadOnlyArray<mixed>): CurriedRet => {
       const rest = args.concat(largs);
 
       if (rest.length < n) return localCurry(name, f, ...rest);

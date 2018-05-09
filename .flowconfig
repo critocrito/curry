@@ -4,3 +4,7 @@
 
 [options]
 include_warnings=true
+
+[lints]
+all=warn
+untyped-type-import=error
