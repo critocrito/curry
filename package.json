@@ -31,7 +31,13 @@
     "security-scan": "retire -p",
     "benchmark": "babel-node ./benchmark.js"
   },
-  "keywords": [],
+  "keywords": [
+    "curry",
+    "currying",
+    "functional programming",
+    "fp",
+    "utility"
+  ],
   "author": "Christo <christo@cryptodrunks.net>",
   "homepage": "https://github.com/critocrito/curry#readme",
   "license": "GPL-3.0",
