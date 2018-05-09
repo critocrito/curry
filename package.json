@@ -28,7 +28,8 @@
     "prerelease": "npm run build",
     "release": "standard-version -i CHANGELOG.md -m \"chore(release): Bumped to version %s.\" --sign",
     "release-candidate": "npm run release -- --prerelease \"rc\"",
-    "security-scan": "retire -p"
+    "security-scan": "retire -p",
+    "benchmark": "babel-node ./benchmark.js"
   },
   "keywords": [],
   "author": "Christo <christo@cryptodrunks.net>",
@@ -81,6 +82,7 @@
     ]
   },
   "dependencies": {
-    "@critocrito/namefn": "^0.1.4"
+    "@critocrito/namefn": "^0.1.4",
+    "benchmark": "^2.1.4"
   }
 }
