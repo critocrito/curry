@@ -1,0 +1,14 @@
+test/
+.babelrc
+.eslintrc.json
+.editorconfig
+.lintstagedrc
+.travis.yml
+.nyc*
+*.log*
+src
+flow-typed
+flow-coverage
+.flow*
+benchmark.js
+*.lock
