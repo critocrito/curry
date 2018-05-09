@@ -7,6 +7,7 @@ import curries from "../src";
 
 const trueStringArb = jsc.suchthat(jsc.asciinestring, s => /^[\w]*$/.exec(s));
 const allCurries = Object.keys(curries)
+  .filter(k => k !== "ncurry")
   // Make sure that we sort the array of curry functions by their arity.
   .sort((a, b) => {
     const re = /([\d]*)$/;

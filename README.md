@@ -54,6 +54,18 @@ sum5(1, 2, 3, 4, 5); // 15
 sum10(1, 2, 3)(4, 5)(6, 7, 8, 9, 10); // 45
 ```
 
+All curry functions are created using the `ncurry` factory. If the provided
+arities are not sufficient, create a new one.
+
+```js
+import {ncurry} from "@critocrito/ncurry"
+
+const sum = xs => xs.reduce((memo, i) => memo + i, 0);
+const curry15 = ncurry(15);
+
+const sum15 = curry15("sum15", sum);
+```
+
 ## Performance
 
 When applying all arguments to the curried function at once,
