@@ -1,0 +1,82 @@
+{
+  "name": "@critocrito/curry",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "module": "src/index.js",
+  "config": {
+    "srcDir": "src",
+    "testDir": "test",
+    "distDir": "dist"
+  },
+  "scripts": {
+    "commitmsg": "! git rev-parse --abbrev-ref HEAD | grep -q master || validate-commit-msg",
+    "precommit": "! git rev-parse --abbrev-ref HEAD | grep -q master || (lint-staged && npm run test)",
+    "prepublishOnly": "npm run build",
+    "test": "cross-env NODE_ENV=test ava",
+    "test:watch": "npm run test -- -w",
+    "flow-coverage": "flow-coverage-report --config ./.flowcoverage",
+    "libdefs": "flow gen-flow-files --out-dir dist src",
+    "coverage": "cross-env NODE_ENV=test nyc npm test",
+    "lint": "eslint $npm_package_config_testDir $npm_package_config_srcDir",
+    "fix": "npm run lint -- --fix",
+    "precompile": "npm run clean",
+    "compile": "babel -s -D -d $npm_package_config_distDir $npm_package_config_srcDir",
+    "compile:watch": "babel -w -s -D -d $npm_package_config_distDir $npm_package_config_srcDir",
+    "clean": "rimraf $npm_package_config_distDir",
+    "build": "npm run lint && flow && npm run test && npm run compile && npm run libdefs",
+    "prerelease": "npm run build",
+    "release": "standard-version -i CHANGELOG.md -m \"chore(release): Bumped to version %s.\" --sign",
+    "release-candidate": "npm run release -- --prerelease \"rc\"",
+    "security-scan": "retire -p"
+  },
+  "keywords": [],
+  "author": "Christo <christo@cryptodrunks.net>",
+  "homepage": "https://github.com/critocrito/curry#readme",
+  "license": "GPL-3.0",
+  "devDependencies": {
+    "ava": "^0.25.0",
+    "ava-jsverify": "^1.0.3",
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.2.2",
+    "babel-plugin-istanbul": "^4.1.5",
+    "babel-plugin-syntax-flow": "^6.18.0",
+    "babel-plugin-syntax-trailing-function-commas": "^6.22.0",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-flow": "^6.23.0",
+    "babel-register": "^6.26.0",
+    "coveralls": "^3.0.0",
+    "cross-env": "^5.1.4",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-config-prettier": "^2.9.0",
+    "eslint-plugin-flowtype": "^2.46.1",
+    "eslint-plugin-import": "^2.10.0",
+    "eslint-plugin-prettier": "^2.6.0",
+    "flow-bin": "^0.69.0",
+    "flow-coverage-report": "^0.5.0",
+    "flow-typed": "^2.4.0",
+    "husky": "^0.14.3",
+    "jsonlint": "^1.6.3",
+    "jsverify": "^0.8.3",
+    "lint-staged": "^7.0.4",
+    "nyc": "^11.6.0",
+    "prettier": "^1.11.1",
+    "retire": "^1.6.0",
+    "rimraf": "^2.6.2",
+    "sinon": "^4.5.0",
+    "standard-version": "^4.3.0",
+    "validate-commit-message": "^3.0.1"
+  },
+  "ava": {
+    "sources": [
+      "src/**/*.js"
+    ],
+    "babel": "inherit",
+    "require": [
+      "babel-register"
+    ]
+  }
+}

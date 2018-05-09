@@ -1,0 +1,6 @@
+[ignore]
+.*/dist/.*
+.*/test/.*
+
+[options]
+include_warnings=true

@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+  - "node"
+  - "lts/*"
+after_script:
+  - npm run coverage && nyc report --reporter=text-lcov | coveralls
+notifications:
+  email:
+    on_success: never
+    on_failure: always
