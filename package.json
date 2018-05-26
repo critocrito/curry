@@ -54,6 +54,7 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-flow": "^6.23.0",
     "babel-register": "^6.26.0",
+    "benchmark": "^2.1.4",
     "coveralls": "^3.0.0",
     "cross-env": "^5.1.4",
     "eslint": "^4.19.1",
@@ -88,7 +89,6 @@
     ]
   },
   "dependencies": {
-    "@critocrito/namefn": "^0.1.4",
-    "benchmark": "^2.1.4"
+    "@critocrito/namefn": "^0.1.4"
   }
 }
