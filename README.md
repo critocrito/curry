@@ -4,7 +4,7 @@ Curry functions with a name.
 
 ## Synopsis
 
-[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) [![npm version](https://img.shields.io/npm/v/@critocrito/curry.svg?style=flat)](https://www.npmjs.com/package/@critocrito/curry) [![Build Status](https://travis-ci.org/critocrito/curry.svg?branch=master)](https://travis-ci.org/critocrito/curry) [![Coverage Status](https://coveralls.io/repos/github/critocrito/curry/badge.svg)](https://coveralls.io/github/critocrito/curry)
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0) [![npm version](https://img.shields.io/npm/v/@critocrito/curry.svg?style=flat)](https://www.npmjs.com/package/@critocrito/curry) [![Build Status](https://travis-ci.org/critocrito/curry.svg?branch=master)](https://travis-ci.org/critocrito/curry) [![Coverage Status](https://coveralls.io/repos/github/critocrito/curry/badge.svg)](https://coveralls.io/github/critocrito/curry) [![Greenkeeper badge](https://badges.greenkeeper.io/critocrito/curry.svg)](https://greenkeeper.io/)
 
 These are curry functions that also set the name of the curried
 functions. This improves the usability of using those curried functions in the
