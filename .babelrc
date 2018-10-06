@@ -1,37 +1,3 @@
 {
-  "presets": [
-    [
-      "env",
-      {
-        "targets": {
-          "node": "8"
-        }
-      }
-    ],
-    "flow"
-  ],
-  "plugins": [
-    "syntax-trailing-function-commas",
-    "syntax-flow",
-    "transform-class-properties",
-    "transform-flow-strip-types",
-    "transform-object-rest-spread"
-  ],
-  "env": {
-    "test": {
-      "presets": [
-        [
-          "env",
-          {
-            "targets": {
-              "node": "current"
-            }
-          }
-        ]
-      ],
-      "plugins": [
-        "istanbul"
-      ]
-    }
-  }
+  "presets": [["@build-chores/babel-preset"]]
 }

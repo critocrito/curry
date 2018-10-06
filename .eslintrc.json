@@ -1,54 +1,13 @@
 {
-  "parser": "babel-eslint",
-  "env": {
-    "es6": true,
-    "node": true
-  },
-  "extends": [
-    "airbnb-base",
-    "plugin:import/errors",
-    "plugin:import/warnings",
-    "prettier",
-    "plugin:flowtype/recommended"
-  ],
-  "plugins": [
-    "import",
-    "prettier",
-    "flowtype"
-  ],
-  "settings": {
-    "flowtype": {
-      "onlyFilesWithFlowAnnotation": true
-    }
-  },
+  "extends": ["@build-chores/lint"],
   "rules": {
-    "no-underscore-dangle": "off",
-    "arrow-parens": "off",
-    "object-curly-spacing": "off",
-    "no-console": "warn",
-    "comma-dangle": [
-      "error",
-      {
-        "arrays": "always-multiline",
-        "objects": "always-multiline",
-        "imports": "always-multiline",
-        "exports": "always-multiline",
-        "functions": "always-multiline"
-      }
-    ],
-    "prettier/prettier": [
-      "error",
-      {
-        "trailingComma": "all",
-        "bracketSpacing": false
-      }
-    ],
     "import/no-extraneous-dependencies": [
       "error",
       {
         "devDependencies": [
+          "benchmark.js",
           "**/test/**/*.js",
-          "benchmark.js"
+          "lint-staged.config.js"
         ]
       }
     ]

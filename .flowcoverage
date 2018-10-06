@@ -1,16 +1,5 @@
 {
-  "excludeGlob": [
-    "node_modules/**",
-    "test/**/*.js"
-  ],
-  "includeGlob": [
+  "globIncludePatterns": [
     "src/**/*.js"
-  ],
-  "outputDir": "flow-coverage",
-  "threshold": 90,
-  "type": [
-    "html",
-    "json",
-    "text"
   ]
 }

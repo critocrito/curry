@@ -5,9 +5,9 @@ import {curry} from "lodash/fp";
 
 import curries from "../src";
 
-const trueStringArb = jsc.suchthat(jsc.asciinestring, s => /^[\w]*$/.exec(s));
+const trueStringArb = jsc.suchthat(jsc.asciinestring, (s) => /^[\w]*$/.exec(s));
 const allCurries = Object.keys(curries)
-  .filter(k => k !== "ncurry")
+  .filter((k) => k !== "ncurry")
   // Make sure that we sort the array of curry functions by their arity.
   .sort((a, b) => {
     const re = /([\d]*)$/;
@@ -15,7 +15,7 @@ const allCurries = Object.keys(curries)
     const [, numB] = re.exec(b);
     return parseInt(numA, 10) < parseInt(numB, 10) ? -1 : 1;
   })
-  .map(k => curries[k]);
+  .map((k) => curries[k]);
 const fixedArityFns = [
   (a, b) => a + b,
   (a, b, c) => a + b + c,
@@ -30,7 +30,7 @@ const fixedArityFns = [
 
 allCurries.forEach((curryFn, i) => {
   const argsLength = i + 2;
-  test(`curry function name should be curry${argsLength}`, t => {
+  test(`curry function name should be curry${argsLength}`, (t) => {
     const expected = `curry${argsLength}`;
     // eslint-disable-next-line prefer-destructuring
     const name = curryFn.name;
@@ -41,7 +41,7 @@ allCurries.forEach((curryFn, i) => {
 allCurries.forEach((curryFn, i) => {
   const argsLength = i + 2;
   const arbs = [...Array(argsLength).keys()].reduce(
-    memo => memo.concat("nat"),
+    (memo) => memo.concat("nat"),
     [],
   );
   const f = fixedArityFns[i];
@@ -49,7 +49,7 @@ allCurries.forEach((curryFn, i) => {
   const f2 = curryFn("f", f);
 
   test(
-    `equivalency of ${curryFn} to lodash's curry`,
+    `equivalency of curry${argsLength} to lodash's curry`,
     check(...arbs, (t, ...xs) => {
       // Turn the parameters into a list of arrays, e.g. [[1], [2, 3], [4], [5]]
       // This allows for random applications of arguments to the curried
@@ -76,7 +76,7 @@ allCurries.forEach((curryFn, i) => {
 allCurries.forEach((curryFn, i) => {
   const argsLength = i + 2;
   const arbs = [...Array(allCurries.length + 1).keys()].reduce(
-    memo => memo.concat("nat"),
+    (memo) => memo.concat("nat"),
     [],
   );
   const sum = (...ys) => ys.reduce((memo, j) => memo + j, 0);

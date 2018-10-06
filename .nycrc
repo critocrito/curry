@@ -1,8 +1,6 @@
 {
-  "require": [
-    "babel-register"
-  ],
   "sourceMap": false,
-  "instrument": false,
-  "exclude": ["_dist", "test"]
+  "instrument": true,
+  "all": true,
+  "include": ["src/**/*.js"]
 }
